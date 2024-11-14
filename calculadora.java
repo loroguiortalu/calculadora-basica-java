@@ -40,6 +40,7 @@ public class CalculadoraBasica {
                             System.out.println("Error: No se puede dividir entre cero.");
                         }
                         break;
+			
                 }
             } else if (opcion == 5) {
                 continuar = false;
