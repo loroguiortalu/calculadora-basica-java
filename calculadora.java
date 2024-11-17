@@ -1,6 +1,9 @@
+package calculadora;
+
+
 import java.util.Scanner;
 
-public class CalculadoraBasica {
+public class calculadora {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
