@@ -16,12 +16,13 @@ public class calculadora {
 			System.out.println("3. Multiplicación");
 			System.out.println("4. División");
 			System.out.println("5. Módulo");// modulo incluido
-			System.out.println("6. Salir");// y salir lo he movido abajo
+			System.out.println("6. Potencia");//potencia incluida
+			System.out.println("7. Salir");// y salir lo he vuelto a mover abajo una vez más
 			System.out.print("Elige una opción: ");
 
 			int opcion = scanner.nextInt();
 
-			if (opcion >= 1 && opcion <= 5) {
+			if (opcion >= 1 && opcion <= 6) {
 				System.out.print("Ingresa el primer número: ");
 				double num1 = scanner.nextDouble();
 				System.out.print("Ingresa el segundo número: ");
@@ -52,8 +53,18 @@ public class calculadora {
 						}
 						break;
 
+					case 6:
+						System.out.print("Ingresa el exponente (debe ser un número entero): ");
+						num2 = scanner.nextDouble();
+						if (Entero(num2)) {
+							System.out.println("Resultado de la potencia: " + potencia(num1, (int) num2));//debe de ser un entero si o si porque es el exponente, no servírían números decimales por ejemplo
+						} else {
+							System.out.println("Error: El exponente debe ser un número entero.");
+						}
+						break;
+
 				}
-			} else if (opcion == 6) {
+			} else if (opcion == 7) {
 				continuar = false;
 				System.out.println("Saliendo de la calculadora...");
 			} else {
@@ -79,9 +90,20 @@ public class calculadora {
 	public static double dividir(double a, double b) {
 		return a / b;
 	}
-	
+
 	public static double modulo(double a, double b) {
 		return a % b;
 	}//imagino
+
+	public static double potencia(double a, int b) {
+		return Math.pow(a, b);//menos mal que existen los métodos y no tengo que inventarme cosas por mi cuenta
+	}
 	
+	// recurso:
+	/*     tienes que ponerle el    https:/ /    docs.oracle.com/javase/8/docs/api/java/lang/Math.html      */
+
+	// y para comprobar que el número sea entero
+	public static boolean Entero(double b) {
+		return b == Math.floor(b); 
+	}
 }
